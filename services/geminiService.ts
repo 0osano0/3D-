@@ -1,6 +1,15 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ElementType, GenerationResponse } from "../types";
 
+// Polyfill environment variable for Vite/Vercel compatibility
+// This ensures process.env.API_KEY is populated from VITE_API_KEY if needed.
+if (typeof process === 'undefined') {
+  (window as any).process = { env: {} };
+}
+if ((import.meta as any).env?.VITE_API_KEY) {
+  process.env.API_KEY = (import.meta as any).env.VITE_API_KEY;
+}
+
 // Initialize Gemini Client
 // Note: process.env.API_KEY is injected by the environment.
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
