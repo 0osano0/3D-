@@ -1,0 +1,5 @@
+{
+  "name": "EduBuild 3D AI",
+  "description": "An interactive 3D school planner that uses Gemini AI to analyze satellite imagery and generate 3D models. Users can drag, drop, and edit buildings, roads, and facilities.",
+  "requestFramePermissions": []
+}
